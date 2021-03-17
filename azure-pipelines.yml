@@ -10,6 +10,12 @@ pool:
   vmImage: windows-latest
 
 steps:
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: '**/*.csproj'
+    feedsToUse: 'config'
+    nugetConfigPath: '.'
 - task: MSBuild@1
   inputs:
     solution: '**/*.csproj'
