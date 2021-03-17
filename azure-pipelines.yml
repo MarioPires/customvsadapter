@@ -10,15 +10,15 @@ pool:
   vmImage: windows-latest
 
 steps:
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
-    restoreSolution: '**/*.csproj'
+    projects: '**/*.csproj'
     feedsToUse: 'config'
-    nugetConfigPath: '.'
-- task: MSBuild@1
+- task: DotNetCoreCLI@2
   inputs:
-    solution: '**/*.csproj'
+    command: 'build'
+    projects: '**/*.csproj'
 - task: VSTest@2
   inputs:
     testSelector: 'testAssemblies'
