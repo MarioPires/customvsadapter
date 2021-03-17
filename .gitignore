@@ -1,0 +1,6 @@
+# Ignore build output of PS
+obj
+bin
+debug/
+packages
+/.vs
